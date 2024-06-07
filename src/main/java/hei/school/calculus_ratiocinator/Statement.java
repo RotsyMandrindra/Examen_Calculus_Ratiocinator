@@ -10,18 +10,23 @@ import lombok.NoArgsConstructor;
 public class Statement {
     private String body;
     private String status;
-    //conjunctions thus and or
-    public static String IsFalseOrTrueUsingThusOr(Statement statement1, Statement statement2){
-        if (statement1.getStatus().equals("TRUE") && statement2.getStatus().equals("TRUE") || (statement1.getStatus().equals("TRUE") || statement2.getStatus().equals("TRUE"))){
+
+    public static String IsFalseOrTrueUsingOr(Statement statement1, Statement statement2){
+        if (statement1.getStatus().equals("TRUE") || statement2.getStatus().equals("TRUE")){
             return "TRUE";
-        }else if((statement1.getStatus().equals("FALSE") && statement2.getStatus().equals("FALSE"))) {
-            return "FALSE";
         }
-        return "UNKNOWN";
+        return "FALSE";
     }
 
     public static String IsFalseOrTrueUsingAnd(Statement statement1, Statement statement2){
-        if (statement1.getStatus().equals("FALSE") || statement2.getStatus().equals("FALSE")){
+        if (statement1.getStatus().equals("TRUE") && statement2.getStatus().equals("TRUE")){
+            return "TRUE";
+        }
+        return "FALSE";
+    }
+
+    public static String IsFalseOrTrueUsingThus(Statement statement1, Statement statement2){
+        if (statement1.getStatus().equals("TRUE") && statement2.getStatus().equals("FALSE")){
             return "FALSE";
         }
         return "TRUE";
