@@ -18,4 +18,18 @@ class StatementTest {
         Statement statement4 = new Statement("Lou est beau", "TRUE");
         assertEquals("TRUE", Statement.IsFalseOrTrue(statement3, statement4));
     }
+
+    @Test
+    void testTrueAndFalse(){
+        Statement statement5 = new Statement("Lou est généreux", "TRUE");
+        Statement statement6 = new Statement("Lou est pauvre", "FALSE");
+        assertEquals("TRUE", Statement.IsFalseOrTrue(statement5, statement6));
+    }
+
+    @Test
+    void testFalseAndTrue(){
+        Statement statement7 = new Statement("Lou est pauvre", "FALSE");
+        Statement statement8 = new Statement("Lou est généreux", "TRUE");
+        assertEquals("TRUE", Statement.IsFalseOrTrue(statement7, statement8));
+    }
 }
